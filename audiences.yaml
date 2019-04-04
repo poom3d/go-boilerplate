@@ -1,0 +1,390 @@
+swagger: "2.0"
+info:
+  version: 0.0.1
+  title: Segmentation API
+  license:
+    name: MIT
+host: bot-plugins-segmentation-dev.line-alpha.me
+basePath: /v1
+schemes:
+  - http
+consumes:
+  - application/json
+produces:
+  - application/json
+securityDefinitions:
+  apiKey:
+    type: apiKey
+    in: header
+    name: X-API-KEY
+  appId:
+    type: apiKey
+    in: header
+    name: X-APP-ID
+security:
+  - apiKey: []
+    appId: []
+paths:
+  /audiences/recommended:
+    get:
+      summary: List all recommended audiences
+      operationId: listRecommendedAudiences
+      tags:
+        - audiences
+      parameters:
+        - name: limit
+          in: query
+          description: How many items to return at one time (max 100)
+          required: false
+          type: integer
+          format: int32
+      responses:
+        "200":
+          description: A paged array of audiences
+          headers:
+            x-next:
+              type: string
+              description: A link to the next page of responses
+          schema:
+            $ref: '#/definitions/Audiences'
+        "401":
+          description: Unauthorized error
+          schema:
+            $ref: "#/definitions/UnauthorizedError"
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /audiences:
+    get:
+      summary: List all audiences
+      operationId: listAudiences
+      tags:
+        - audiences
+      parameters:
+        - name: limit
+          in: query
+          description: How many items to return at one time (max 100)
+          required: false
+          type: integer
+          format: int32
+      responses:
+        "200":
+          description: A paged array of audiences
+          headers:
+            x-next:
+              type: string
+              description: A link to the next page of responses
+          schema:
+            $ref: '#/definitions/Audiences'
+        "401":
+          description: Unauthorized error
+          schema:
+            $ref: "#/definitions/UnauthorizedError"
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+    post:
+      summary: Create an audience
+      operationId: createAudience
+      tags:
+        - audiences
+      parameters:
+        - description: An audience to create.
+          in: body
+          name: audience
+          required: true
+          schema:
+            $ref: '#/definitions/Audience'
+      responses:
+        "200":
+          description: A newly created audience
+          schema:
+            $ref: '#/definitions/Audience'
+        "401":
+          description: Unauthorized error
+          schema:
+            $ref: "#/definitions/UnauthorizedError"
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /audience/{audienceId}:
+    get:
+      summary: Info for a specific audience
+      operationId: showAudienceById
+      tags:
+        - audiences
+      parameters:
+        - name: audienceId
+          in: path
+          required: true
+          description: The id of the audience to retrieve
+          type: string
+      responses:
+        "200":
+          description: Expected response to a valid request
+          schema:
+            $ref: '#/definitions/Audience'
+        "401":
+          description: Unauthorized error
+          schema:
+            $ref: "#/definitions/UnauthorizedError"
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /audiences/{audienceId}/demographic:
+    post:
+      summary: Filter audiences based on demographics
+      operationId: filterAudienceByDemographic
+      tags:
+        - audiences
+      parameters:
+        - name: audienceId
+          in: path
+          required: true
+          description: The id of the audience to retrieve
+          type: string
+        - description: A demographic to filter.
+          in: body
+          name: demographic
+          required: true
+          schema:
+            $ref: '#/definitions/Demographic'
+      responses:
+        "200":
+          description: Expected response to a valid request
+          schema:
+            $ref: '#/definitions/Audience'
+        "401":
+          description: Unauthorized error
+          schema:
+            $ref: "#/definitions/UnauthorizedError"
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /audiences/{audienceId}/interests:
+    post:
+      summary: Filter audiences based on intertests
+      operationId: filterAudienceByInterests
+      tags:
+        - audiences
+      parameters:
+        - name: audienceId
+          in: path
+          required: true
+          description: The id of the audience to retrieve
+          type: string
+        - description: An array of intertests to filter
+          in: body
+          name: interests
+          required: true
+          schema:
+            $ref: '#/definitions/Interests'
+      responses:
+        "200":
+          description: Expected response to a valid request
+          schema:
+            $ref: '#/definitions/Audience'
+        "401":
+          description: Unauthorized error
+          schema:
+            $ref: "#/definitions/UnauthorizedError"
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /audiences/{audienceId}/behaviours/userstatus:
+    post:
+      summary: Filter audiences based on user status
+      operationId: filterAudienceByUserStatus
+      tags:
+        - audiences
+      parameters:
+        - name: audienceId
+          in: path
+          required: true
+          description: The id of the audience to retrieve
+          type: string
+        - description: A userstatus to filter.
+          in: body
+          name: userstatus
+          required: true
+          schema:
+            $ref: '#/definitions/UserStatus'
+      responses:
+        "200":
+          description: Expected response to a valid request
+          schema:
+            $ref: '#/definitions/Audience'
+        "401":
+          description: Unauthorized error
+          schema:
+            $ref: "#/definitions/UnauthorizedError"
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+  /audiences/{audienceId}/behaviours/campaign:
+    post:
+      summary: Filter audiences based on link campaign
+      operationId: filterAudienceByCampaign
+      tags:
+        - audiences
+      parameters:
+        - name: audienceId
+          in: path
+          required: true
+          description: The id of the audience to retrieve
+          type: string
+        - description: A campaign to filter.
+          in: body
+          name: campaign
+          required: true
+          schema:
+            $ref: '#/definitions/Campaign'
+      responses:
+        "200":
+          description: Expected response to a valid request
+          schema:
+            $ref: '#/definitions/Audience'
+        "401":
+          description: Unauthorized error
+          schema:
+            $ref: "#/definitions/UnauthorizedError"
+        default:
+          description: unexpected error
+          schema:
+            $ref: '#/definitions/Error'
+definitions:
+  Audience:
+    required:
+      - audienceId
+      - title
+      - description
+    properties:
+      audienceId:
+        type: string
+      title:
+        type: string
+      description:
+        type: string
+      estimatedUsers:
+        type: integer
+        format: int32
+  Audiences:
+    type: object
+    properties:
+      data:
+        items:
+          $ref: '#/definitions/Audience'
+        type: array
+  AgeRange:
+    required:
+      - type
+    properties:
+      from:
+        type: integer
+        format: int32
+      to:
+        type: integer
+        format: int32
+      type:
+        type: string
+  Campaign:
+    required:
+      - type
+    properties:
+      campaignId:
+        type: string
+      linkId:
+        type: string
+      action:
+        type: string
+      from:
+        type: string
+      to:
+        type: string
+      condition:
+        type: string
+    example:
+      campaignId: "123"
+      linkId: "123"
+      from: "2018-10-01"
+      to: "2018-11-01"
+      condition: or
+  Demographic:
+    properties:
+      gender:
+        type: string
+      age:
+        type: object
+        $ref: '#/definitions/AgeRange'
+      location:
+        type: string
+      email:
+        type: string
+    example:
+      gender: male
+      age:
+        from: 15
+        to: 25
+        type: range
+      location: bangkok
+      email: yes
+  Interest:
+    required:
+      - tag
+    properties:
+      tag:
+        type: string
+    example:
+      tag: "horoscope"
+  Interests:
+    type: object
+    properties:
+      data:
+        items:
+          $ref: '#/definitions/Interest'
+        type: array
+  UserStatus:
+    required:
+      - status
+      - condition
+    properties:
+      status:
+        type: string
+      from:
+        type: string
+      to:
+        type: string
+      condition:
+        type: string
+    example:
+      status: unblock
+      from: "2018-10-01"
+      to: "2018-11-01"
+      condition: and
+  UnauthorizedError:
+    required:
+      - code
+      - message
+    properties:
+      code:
+        type: integer
+        format: int32
+      message:
+        type: string
+  Error:
+    required:
+      - code
+      - message
+    properties:
+      code:
+        type: integer
+        format: int32
+      message:
+        type: string

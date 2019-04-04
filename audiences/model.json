@@ -1,0 +1,803 @@
+{
+  "name": "Segmentation API",
+  "types": [
+    {
+      "name": "Audience",
+      "description": "implements the service definition of Audience",
+      "fields": [
+        {
+          "name": "audienceId",
+          "type": "string",
+          "nativeType": "string",
+          "fieldName": "AudienceId",
+          "parameterName": "audienceId",
+          "serialize": true
+        },
+        {
+          "name": "title",
+          "type": "string",
+          "nativeType": "string",
+          "fieldName": "Title",
+          "parameterName": "title",
+          "serialize": true
+        },
+        {
+          "name": "description",
+          "type": "string",
+          "nativeType": "string",
+          "fieldName": "Description",
+          "parameterName": "description",
+          "serialize": true
+        },
+        {
+          "name": "estimatedUsers",
+          "type": "integer",
+          "format": "int32",
+          "nativeType": "int32",
+          "fieldName": "EstimatedUsers",
+          "parameterName": "estimatedUsers",
+          "serialize": true
+        }
+      ],
+      "typeName": "Audience"
+    },
+    {
+      "name": "Audiences",
+      "description": "implements the service definition of Audiences",
+      "fields": [
+        {
+          "name": "data",
+          "type": "Audience",
+          "kind": 2,
+          "nativeType": "Audience",
+          "fieldName": "Data",
+          "parameterName": "data",
+          "serialize": true
+        }
+      ],
+      "typeName": "Audiences"
+    },
+    {
+      "name": "AgeRange",
+      "description": "implements the service definition of AgeRange",
+      "fields": [
+        {
+          "name": "from",
+          "type": "integer",
+          "format": "int32",
+          "nativeType": "int32",
+          "fieldName": "From",
+          "parameterName": "from",
+          "serialize": true
+        },
+        {
+          "name": "to",
+          "type": "integer",
+          "format": "int32",
+          "nativeType": "int32",
+          "fieldName": "To",
+          "parameterName": "to",
+          "serialize": true
+        },
+        {
+          "name": "type",
+          "type": "string",
+          "nativeType": "string",
+          "fieldName": "Type",
+          "parameterName": "myType",
+          "serialize": true
+        }
+      ],
+      "typeName": "AgeRange"
+    },
+    {
+      "name": "Campaign",
+      "description": "implements the service definition of Campaign",
+      "fields": [
+        {
+          "name": "campaignId",
+          "type": "string",
+          "nativeType": "string",
+          "fieldName": "CampaignId",
+          "parameterName": "campaignId",
+          "serialize": true
+        },
+        {
+          "name": "linkId",
+          "type": "string",
+          "nativeType": "string",
+          "fieldName": "LinkId",
+          "parameterName": "linkId",
+          "serialize": true
+        },
+        {
+          "name": "action",
+          "type": "string",
+          "nativeType": "string",
+          "fieldName": "Action",
+          "parameterName": "action",
+          "serialize": true
+        },
+        {
+          "name": "from",
+          "type": "string",
+          "nativeType": "string",
+          "fieldName": "From",
+          "parameterName": "from",
+          "serialize": true
+        },
+        {
+          "name": "to",
+          "type": "string",
+          "nativeType": "string",
+          "fieldName": "To",
+          "parameterName": "to",
+          "serialize": true
+        },
+        {
+          "name": "condition",
+          "type": "string",
+          "nativeType": "string",
+          "fieldName": "Condition",
+          "parameterName": "condition",
+          "serialize": true
+        }
+      ],
+      "typeName": "Campaign"
+    },
+    {
+      "name": "Demographic",
+      "description": "implements the service definition of Demographic",
+      "fields": [
+        {
+          "name": "gender",
+          "type": "string",
+          "nativeType": "string",
+          "fieldName": "Gender",
+          "parameterName": "gender",
+          "serialize": true
+        },
+        {
+          "name": "age",
+          "type": "AgeRange",
+          "nativeType": "AgeRange",
+          "fieldName": "Age",
+          "parameterName": "age",
+          "serialize": true
+        },
+        {
+          "name": "location",
+          "type": "string",
+          "nativeType": "string",
+          "fieldName": "Location",
+          "parameterName": "location",
+          "serialize": true
+        },
+        {
+          "name": "email",
+          "type": "string",
+          "nativeType": "string",
+          "fieldName": "Email",
+          "parameterName": "email",
+          "serialize": true
+        }
+      ],
+      "typeName": "Demographic"
+    },
+    {
+      "name": "Interest",
+      "description": "implements the service definition of Interest",
+      "fields": [
+        {
+          "name": "tag",
+          "type": "string",
+          "nativeType": "string",
+          "fieldName": "Tag",
+          "parameterName": "tag",
+          "serialize": true
+        }
+      ],
+      "typeName": "Interest"
+    },
+    {
+      "name": "Interests",
+      "description": "implements the service definition of Interests",
+      "fields": [
+        {
+          "name": "data",
+          "type": "Interest",
+          "kind": 2,
+          "nativeType": "Interest",
+          "fieldName": "Data",
+          "parameterName": "data",
+          "serialize": true
+        }
+      ],
+      "typeName": "Interests"
+    },
+    {
+      "name": "UserStatus",
+      "description": "implements the service definition of UserStatus",
+      "fields": [
+        {
+          "name": "status",
+          "type": "string",
+          "nativeType": "string",
+          "fieldName": "Status",
+          "parameterName": "status",
+          "serialize": true
+        },
+        {
+          "name": "from",
+          "type": "string",
+          "nativeType": "string",
+          "fieldName": "From",
+          "parameterName": "from",
+          "serialize": true
+        },
+        {
+          "name": "to",
+          "type": "string",
+          "nativeType": "string",
+          "fieldName": "To",
+          "parameterName": "to",
+          "serialize": true
+        },
+        {
+          "name": "condition",
+          "type": "string",
+          "nativeType": "string",
+          "fieldName": "Condition",
+          "parameterName": "condition",
+          "serialize": true
+        }
+      ],
+      "typeName": "UserStatus"
+    },
+    {
+      "name": "UnauthorizedError",
+      "description": "implements the service definition of UnauthorizedError",
+      "fields": [
+        {
+          "name": "code",
+          "type": "integer",
+          "format": "int32",
+          "nativeType": "int32",
+          "fieldName": "Code",
+          "parameterName": "code",
+          "serialize": true
+        },
+        {
+          "name": "message",
+          "type": "string",
+          "nativeType": "string",
+          "fieldName": "Message",
+          "parameterName": "message",
+          "serialize": true
+        }
+      ],
+      "typeName": "UnauthorizedError"
+    },
+    {
+      "name": "Error",
+      "description": "implements the service definition of Error",
+      "fields": [
+        {
+          "name": "code",
+          "type": "integer",
+          "format": "int32",
+          "nativeType": "int32",
+          "fieldName": "Code",
+          "parameterName": "code",
+          "serialize": true
+        },
+        {
+          "name": "message",
+          "type": "string",
+          "nativeType": "string",
+          "fieldName": "Message",
+          "parameterName": "message",
+          "serialize": true
+        }
+      ],
+      "typeName": "Error"
+    },
+    {
+      "name": "ListRecommendedAudiencesParameters",
+      "description": "ListRecommendedAudiencesParameters holds parameters to ListRecommendedAudiences",
+      "fields": [
+        {
+          "name": "limit",
+          "type": "integer",
+          "position": 3,
+          "nativeType": "int64",
+          "fieldName": "Limit",
+          "parameterName": "limit",
+          "serialize": true
+        }
+      ],
+      "typeName": "ListRecommendedAudiencesParameters"
+    },
+    {
+      "name": "ListRecommendedAudiencesResponses",
+      "description": "ListRecommendedAudiencesResponses holds responses of ListRecommendedAudiences",
+      "fields": [
+        {
+          "name": "200",
+          "type": "Audiences",
+          "kind": 3,
+          "nativeType": "Audiences",
+          "fieldName": "OK",
+          "parameterName": "200"
+        },
+        {
+          "name": "401",
+          "type": "UnauthorizedError",
+          "kind": 3,
+          "nativeType": "UnauthorizedError",
+          "fieldName": "Code401",
+          "parameterName": "401"
+        },
+        {
+          "name": "default",
+          "type": "Error",
+          "kind": 3,
+          "nativeType": "Error",
+          "fieldName": "Default",
+          "parameterName": "default"
+        }
+      ],
+      "typeName": "ListRecommendedAudiencesResponses"
+    },
+    {
+      "name": "ListAudiencesParameters",
+      "description": "ListAudiencesParameters holds parameters to ListAudiences",
+      "fields": [
+        {
+          "name": "limit",
+          "type": "integer",
+          "position": 3,
+          "nativeType": "int64",
+          "fieldName": "Limit",
+          "parameterName": "limit",
+          "serialize": true
+        }
+      ],
+      "typeName": "ListAudiencesParameters"
+    },
+    {
+      "name": "ListAudiencesResponses",
+      "description": "ListAudiencesResponses holds responses of ListAudiences",
+      "fields": [
+        {
+          "name": "200",
+          "type": "Audiences",
+          "kind": 3,
+          "nativeType": "Audiences",
+          "fieldName": "OK",
+          "parameterName": "200"
+        },
+        {
+          "name": "401",
+          "type": "UnauthorizedError",
+          "kind": 3,
+          "nativeType": "UnauthorizedError",
+          "fieldName": "Code401",
+          "parameterName": "401"
+        },
+        {
+          "name": "default",
+          "type": "Error",
+          "kind": 3,
+          "nativeType": "Error",
+          "fieldName": "Default",
+          "parameterName": "default"
+        }
+      ],
+      "typeName": "ListAudiencesResponses"
+    },
+    {
+      "name": "CreateAudienceParameters",
+      "description": "CreateAudienceParameters holds parameters to CreateAudience",
+      "fields": [
+        {
+          "name": "audience",
+          "type": "Audience",
+          "nativeType": "Audience",
+          "fieldName": "Audience",
+          "parameterName": "audience",
+          "serialize": true
+        }
+      ],
+      "typeName": "CreateAudienceParameters"
+    },
+    {
+      "name": "CreateAudienceResponses",
+      "description": "CreateAudienceResponses holds responses of CreateAudience",
+      "fields": [
+        {
+          "name": "200",
+          "type": "Audience",
+          "kind": 3,
+          "nativeType": "Audience",
+          "fieldName": "OK",
+          "parameterName": "200"
+        },
+        {
+          "name": "401",
+          "type": "UnauthorizedError",
+          "kind": 3,
+          "nativeType": "UnauthorizedError",
+          "fieldName": "Code401",
+          "parameterName": "401"
+        },
+        {
+          "name": "default",
+          "type": "Error",
+          "kind": 3,
+          "nativeType": "Error",
+          "fieldName": "Default",
+          "parameterName": "default"
+        }
+      ],
+      "typeName": "CreateAudienceResponses"
+    },
+    {
+      "name": "ShowAudienceByIdParameters",
+      "description": "ShowAudienceByIdParameters holds parameters to ShowAudienceById",
+      "fields": [
+        {
+          "name": "audienceId",
+          "type": "string",
+          "position": 4,
+          "nativeType": "string",
+          "fieldName": "AudienceId",
+          "parameterName": "audienceId",
+          "serialize": true
+        }
+      ],
+      "typeName": "ShowAudienceByIdParameters"
+    },
+    {
+      "name": "ShowAudienceByIdResponses",
+      "description": "ShowAudienceByIdResponses holds responses of ShowAudienceById",
+      "fields": [
+        {
+          "name": "200",
+          "type": "Audience",
+          "kind": 3,
+          "nativeType": "Audience",
+          "fieldName": "OK",
+          "parameterName": "200"
+        },
+        {
+          "name": "401",
+          "type": "UnauthorizedError",
+          "kind": 3,
+          "nativeType": "UnauthorizedError",
+          "fieldName": "Code401",
+          "parameterName": "401"
+        },
+        {
+          "name": "default",
+          "type": "Error",
+          "kind": 3,
+          "nativeType": "Error",
+          "fieldName": "Default",
+          "parameterName": "default"
+        }
+      ],
+      "typeName": "ShowAudienceByIdResponses"
+    },
+    {
+      "name": "FilterAudienceByDemographicParameters",
+      "description": "FilterAudienceByDemographicParameters holds parameters to FilterAudienceByDemographic",
+      "fields": [
+        {
+          "name": "audienceId",
+          "type": "string",
+          "position": 4,
+          "nativeType": "string",
+          "fieldName": "AudienceId",
+          "parameterName": "audienceId",
+          "serialize": true
+        },
+        {
+          "name": "demographic",
+          "type": "Demographic",
+          "nativeType": "Demographic",
+          "fieldName": "Demographic",
+          "parameterName": "demographic",
+          "serialize": true
+        }
+      ],
+      "typeName": "FilterAudienceByDemographicParameters"
+    },
+    {
+      "name": "FilterAudienceByDemographicResponses",
+      "description": "FilterAudienceByDemographicResponses holds responses of FilterAudienceByDemographic",
+      "fields": [
+        {
+          "name": "200",
+          "type": "Audience",
+          "kind": 3,
+          "nativeType": "Audience",
+          "fieldName": "OK",
+          "parameterName": "200"
+        },
+        {
+          "name": "401",
+          "type": "UnauthorizedError",
+          "kind": 3,
+          "nativeType": "UnauthorizedError",
+          "fieldName": "Code401",
+          "parameterName": "401"
+        },
+        {
+          "name": "default",
+          "type": "Error",
+          "kind": 3,
+          "nativeType": "Error",
+          "fieldName": "Default",
+          "parameterName": "default"
+        }
+      ],
+      "typeName": "FilterAudienceByDemographicResponses"
+    },
+    {
+      "name": "FilterAudienceByInterestsParameters",
+      "description": "FilterAudienceByInterestsParameters holds parameters to FilterAudienceByInterests",
+      "fields": [
+        {
+          "name": "audienceId",
+          "type": "string",
+          "position": 4,
+          "nativeType": "string",
+          "fieldName": "AudienceId",
+          "parameterName": "audienceId",
+          "serialize": true
+        },
+        {
+          "name": "interests",
+          "type": "Interests",
+          "nativeType": "Interests",
+          "fieldName": "Interests",
+          "parameterName": "interests",
+          "serialize": true
+        }
+      ],
+      "typeName": "FilterAudienceByInterestsParameters"
+    },
+    {
+      "name": "FilterAudienceByInterestsResponses",
+      "description": "FilterAudienceByInterestsResponses holds responses of FilterAudienceByInterests",
+      "fields": [
+        {
+          "name": "200",
+          "type": "Audience",
+          "kind": 3,
+          "nativeType": "Audience",
+          "fieldName": "OK",
+          "parameterName": "200"
+        },
+        {
+          "name": "401",
+          "type": "UnauthorizedError",
+          "kind": 3,
+          "nativeType": "UnauthorizedError",
+          "fieldName": "Code401",
+          "parameterName": "401"
+        },
+        {
+          "name": "default",
+          "type": "Error",
+          "kind": 3,
+          "nativeType": "Error",
+          "fieldName": "Default",
+          "parameterName": "default"
+        }
+      ],
+      "typeName": "FilterAudienceByInterestsResponses"
+    },
+    {
+      "name": "FilterAudienceByUserStatusParameters",
+      "description": "FilterAudienceByUserStatusParameters holds parameters to FilterAudienceByUserStatus",
+      "fields": [
+        {
+          "name": "audienceId",
+          "type": "string",
+          "position": 4,
+          "nativeType": "string",
+          "fieldName": "AudienceId",
+          "parameterName": "audienceId",
+          "serialize": true
+        },
+        {
+          "name": "userstatus",
+          "type": "UserStatus",
+          "nativeType": "UserStatus",
+          "fieldName": "Userstatus",
+          "parameterName": "userstatus",
+          "serialize": true
+        }
+      ],
+      "typeName": "FilterAudienceByUserStatusParameters"
+    },
+    {
+      "name": "FilterAudienceByUserStatusResponses",
+      "description": "FilterAudienceByUserStatusResponses holds responses of FilterAudienceByUserStatus",
+      "fields": [
+        {
+          "name": "200",
+          "type": "Audience",
+          "kind": 3,
+          "nativeType": "Audience",
+          "fieldName": "OK",
+          "parameterName": "200"
+        },
+        {
+          "name": "401",
+          "type": "UnauthorizedError",
+          "kind": 3,
+          "nativeType": "UnauthorizedError",
+          "fieldName": "Code401",
+          "parameterName": "401"
+        },
+        {
+          "name": "default",
+          "type": "Error",
+          "kind": 3,
+          "nativeType": "Error",
+          "fieldName": "Default",
+          "parameterName": "default"
+        }
+      ],
+      "typeName": "FilterAudienceByUserStatusResponses"
+    },
+    {
+      "name": "FilterAudienceByCampaignParameters",
+      "description": "FilterAudienceByCampaignParameters holds parameters to FilterAudienceByCampaign",
+      "fields": [
+        {
+          "name": "audienceId",
+          "type": "string",
+          "position": 4,
+          "nativeType": "string",
+          "fieldName": "AudienceId",
+          "parameterName": "audienceId",
+          "serialize": true
+        },
+        {
+          "name": "campaign",
+          "type": "Campaign",
+          "nativeType": "Campaign",
+          "fieldName": "Campaign",
+          "parameterName": "campaign",
+          "serialize": true
+        }
+      ],
+      "typeName": "FilterAudienceByCampaignParameters"
+    },
+    {
+      "name": "FilterAudienceByCampaignResponses",
+      "description": "FilterAudienceByCampaignResponses holds responses of FilterAudienceByCampaign",
+      "fields": [
+        {
+          "name": "200",
+          "type": "Audience",
+          "kind": 3,
+          "nativeType": "Audience",
+          "fieldName": "OK",
+          "parameterName": "200"
+        },
+        {
+          "name": "401",
+          "type": "UnauthorizedError",
+          "kind": 3,
+          "nativeType": "UnauthorizedError",
+          "fieldName": "Code401",
+          "parameterName": "401"
+        },
+        {
+          "name": "default",
+          "type": "Error",
+          "kind": 3,
+          "nativeType": "Error",
+          "fieldName": "Default",
+          "parameterName": "default"
+        }
+      ],
+      "typeName": "FilterAudienceByCampaignResponses"
+    }
+  ],
+  "methods": [
+    {
+      "operation": "listRecommendedAudiences",
+      "path": "/audiences/recommended",
+      "method": "GET",
+      "name": "ListRecommendedAudiences",
+      "handlerName": "HandleListRecommendedAudiences",
+      "processorName": "ListRecommendedAudiences",
+      "clientName": "ListRecommendedAudiences",
+      "parametersTypeName": "ListRecommendedAudiencesParameters",
+      "responsesTypeName": "ListRecommendedAudiencesResponses"
+    },
+    {
+      "operation": "listAudiences",
+      "path": "/audiences",
+      "method": "GET",
+      "name": "ListAudiences",
+      "handlerName": "HandleListAudiences",
+      "processorName": "ListAudiences",
+      "clientName": "ListAudiences",
+      "parametersTypeName": "ListAudiencesParameters",
+      "responsesTypeName": "ListAudiencesResponses"
+    },
+    {
+      "operation": "createAudience",
+      "path": "/audiences",
+      "method": "POST",
+      "name": "CreateAudience",
+      "handlerName": "HandleCreateAudience",
+      "processorName": "CreateAudience",
+      "clientName": "CreateAudience",
+      "parametersTypeName": "CreateAudienceParameters",
+      "responsesTypeName": "CreateAudienceResponses"
+    },
+    {
+      "operation": "showAudienceById",
+      "path": "/audience/{audienceId}",
+      "method": "GET",
+      "name": "ShowAudienceById",
+      "handlerName": "HandleShowAudienceById",
+      "processorName": "ShowAudienceById",
+      "clientName": "ShowAudienceById",
+      "parametersTypeName": "ShowAudienceByIdParameters",
+      "responsesTypeName": "ShowAudienceByIdResponses"
+    },
+    {
+      "operation": "filterAudienceByDemographic",
+      "path": "/audiences/{audienceId}/demographic",
+      "method": "POST",
+      "name": "FilterAudienceByDemographic",
+      "handlerName": "HandleFilterAudienceByDemographic",
+      "processorName": "FilterAudienceByDemographic",
+      "clientName": "FilterAudienceByDemographic",
+      "parametersTypeName": "FilterAudienceByDemographicParameters",
+      "responsesTypeName": "FilterAudienceByDemographicResponses"
+    },
+    {
+      "operation": "filterAudienceByInterests",
+      "path": "/audiences/{audienceId}/interests",
+      "method": "POST",
+      "name": "FilterAudienceByInterests",
+      "handlerName": "HandleFilterAudienceByInterests",
+      "processorName": "FilterAudienceByInterests",
+      "clientName": "FilterAudienceByInterests",
+      "parametersTypeName": "FilterAudienceByInterestsParameters",
+      "responsesTypeName": "FilterAudienceByInterestsResponses"
+    },
+    {
+      "operation": "filterAudienceByUserStatus",
+      "path": "/audiences/{audienceId}/behaviours/userstatus",
+      "method": "POST",
+      "name": "FilterAudienceByUserStatus",
+      "handlerName": "HandleFilterAudienceByUserStatus",
+      "processorName": "FilterAudienceByUserStatus",
+      "clientName": "FilterAudienceByUserStatus",
+      "parametersTypeName": "FilterAudienceByUserStatusParameters",
+      "responsesTypeName": "FilterAudienceByUserStatusResponses"
+    },
+    {
+      "operation": "filterAudienceByCampaign",
+      "path": "/audiences/{audienceId}/behaviours/campaign",
+      "method": "POST",
+      "name": "FilterAudienceByCampaign",
+      "handlerName": "HandleFilterAudienceByCampaign",
+      "processorName": "FilterAudienceByCampaign",
+      "clientName": "FilterAudienceByCampaign",
+      "parametersTypeName": "FilterAudienceByCampaignParameters",
+      "responsesTypeName": "FilterAudienceByCampaignResponses"
+    }
+  ]
+}
